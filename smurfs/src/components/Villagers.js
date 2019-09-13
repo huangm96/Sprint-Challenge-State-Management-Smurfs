@@ -9,11 +9,13 @@ const Villagers = (props)=> {
    props.getVillagers();
  }, []);
     return (
-      <div className="VillagersContainer">
-            <h2>Villagers</h2>
+      <div className="villagersContainer">
+        <h2>Villagers:</h2>
+        <div className="villagersList">
             {props.smurfs.map((villager) => {
                 return <Villager villager={villager}/>
             })}
+          </div>
       </div>
     );
   }

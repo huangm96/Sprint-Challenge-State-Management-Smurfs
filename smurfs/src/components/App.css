@@ -1,28 +1,33 @@
 .App {
+  margin: 50px auto;
+  padding: 0 150px;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.villagersContainer h2 {
+  text-align: left;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.villagersList {
+  display: flex;
+  flex-wrap: wrap;
+}
+.villagerContainer {
+  margin: 10px 20px;
+  padding: 5px 10px;
+  border-radius: 25px;
+  border: 2px solid rgb(7%, 65%, 88%);
+  text-decoration-line: underline;
 }
 
-.App-title {
-  font-size: 1.5em;
+input{
+ width:300px;
+ height:30px;
+  margin: 10px 0;
 }
 
-.App-intro {
-  font-size: large;
-}
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+button{
+  width:120px;
+ height:40px;
+ font-size:1.5rem;
 }
