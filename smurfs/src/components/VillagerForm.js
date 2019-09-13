@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import { saveVillage } from "../store/actions";
+import { fromByteArray } from "ipaddr.js";
 
 const VillagerForm = props => {
+    const[errorMessage, setErrorMessage]=useState(false)
   const [form, setForm] = useState({
     name: "",
     age: "",
@@ -16,17 +18,22 @@ const VillagerForm = props => {
 
   const submitForm = e => {
     e.preventDefault();
-    props.saveVillage(form);
-    setForm({
-      name: "",
-      age: "",
-      height: "",
-      id: Math.floor(Math.random() * 1000)
-    });
+      if (!form.name || !form.age || !form.height) {
+          setErrorMessage(true);
+      } else {
+          props.saveVillage(form);
+          setForm({
+              name: "",
+              age: "",
+              height: "",
+              id: Math.floor(Math.random() * 1000)
+          });
+      }
   };
   return (
     <div className="villagerFormContainer">
-      <h3>Fill The Form and Become our village!</h3>
+          <h3>Fill The Form and Become our village!</h3>
+          <div>{errorMessage ? <h3 className="errorMessage">ERROR! Please Check The Form!!!</h3>:null}</div>
       <form onSubmit={submitForm}>
         <label htmlFor="name">Name : </label>
         <input
