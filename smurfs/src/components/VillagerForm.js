@@ -44,7 +44,7 @@ const VillagerForm = props => {
         />
         <br />
         <br />
-        <label htmlFor="age">Age :</label>
+        <label htmlFor="age">Age :       </label>
         <input
           type="number"
           name="age"

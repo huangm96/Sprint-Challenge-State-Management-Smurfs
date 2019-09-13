@@ -26,6 +26,14 @@ export const getVillagers = () => dispatch => {
        };
 
 export const saveVillage = (props) => dispatch => {
-    console.log(props)
-     dispatch({ type: SAVING_VILLAGERS, payload:props });
-       }
+  console.log(props)
+ 
+  axios
+    .post("http://localhost:3333/smurfs", props)
+    .then(res => {
+      console.log(res);
+      dispatch({ type: SAVING_VILLAGERS, payload: props });
+    })
+    .catch(err => console.log(err.response));
+}
+      
