@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import {saveVillage} from '../store/actions'
 
 const VillagerForm = props => {
   const [form, setForm] = useState({
     name: "",
     age: "",
     height: "",
-    id: new Date()
+    id: Math.floor(Math.random() * 1000)
   });
 console.log(form)
   const changeHandler = e => {
@@ -15,7 +16,13 @@ console.log(form)
 
   const submitForm = e => {
       e.preventDefault();
-      
+props.saveVillage(form);
+      setForm({
+        name: "",
+        age: "",
+        height: "",
+        id: Math.floor(Math.random() * 1000)
+      });
     
   };
   return (
@@ -34,7 +41,7 @@ console.log(form)
         <br />
         <label htmlFor="age">Age : </label>
         <input
-          type="text"
+          type="number"
           name="age"
          
           value={form.age}
@@ -61,6 +68,6 @@ console.log(form)
 
 export default connect(
   null,
-  {  }
+  { saveVillage }
 )(VillagerForm);
 
