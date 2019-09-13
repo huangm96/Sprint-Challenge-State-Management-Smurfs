@@ -15,6 +15,7 @@ export const getVillagers = () => dispatch => {
              
            })
            .catch(err => {
-             console.log(err);
+               console.log(err);
+                dispatch({ type: FETCHING_Villagers_FAILURE });
            });
        };

@@ -1,18 +1,16 @@
 import {
   FETCHING_Villagers_START,
-  FETCHING_Villagers_SUCCESS
+  FETCHING_Villagers_SUCCESS,
+  FETCHING_Villagers_FAILURE
 } from "../actions";
 const initialState = {
   isFetching: false,
-  smurfs: [
-    
-  ]
+  smurfs: [],
+  error: ""
 };
 export const reducer = (state = initialState, action) => {
- 
   switch (action.type) {
     case FETCHING_Villagers_START:
-      console.log(state);
       return {
         ...state,
         isFetching: true
@@ -21,8 +19,14 @@ export const reducer = (state = initialState, action) => {
       console.log(action.payload);
       return {
         ...state,
-          isFetching: false,
-        smurfs:[...state.smurfs, action.payload]
+        isFetching: false,
+        smurfs: [...state.smurfs, action.payload]
+      };
+    case FETCHING_Villagers_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        error: "ERRORS!!!!!!!"
       };
     default:
       return state;
