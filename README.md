@@ -23,10 +23,30 @@ In this challenge, you are to build the Smurfs village once again, only this tim
 Demonstrate your understanding of this Sprint's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
 - [ ] What problem does the context API help solve?
+
+Context provides a way to share values like these between components without having to explicitly pass a prop through every level of the tree.
+
 - [ ] In your own words, describe `actions`, `reducers` and the `store` and their role in Redux. What does each piece do? Why is the store known as a 'single source of truth' in a redux application?
+
+store: store keeps all of the data.
+actions: actions will cause something happen, such as getting data, changing data...
+reducers: reducers manage the data in the app.
+The store known as a 'single source of truth' in a redux application because we can pass data to our app from store directly
+
+
 - [ ] What is the difference between Application state and Component state? When would be a good time to use one over the other?
+
+Application state is the "global" state that all components in the component tree can access, but component state cannot be seen outside of the component.
+
+
 - [ ] Describe `redux-thunk`, what does it allow us to do? How does it change our `action-creators`?
+
+Redux Thunk is a separate node package called redux-thunk, and the Redux action -> reducer flow is synchronous. When an action creator is called, redux-thunk will intercept and look at what is returned. If the thing returned is an action, it will forward the action through to the reducer. But, if the thing returned is a function, aka a thunk (a function returned from a function), then it will invoke that function and pass in the dispatch function as an argument to it.
+
 - [ ] What is your favorite state management system you've learned and this sprint? Please explain why!
+
+Redux is my favorite state management system that I learned in this sprint. We do not need to pass data from parent to child anymore.
+
 
 ## Project Set Up
 
